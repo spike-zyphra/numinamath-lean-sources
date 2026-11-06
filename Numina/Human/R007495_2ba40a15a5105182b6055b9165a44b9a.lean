@@ -1,0 +1,5 @@
+import Mathlib
+
+/- Let GCF(a, b) be the abbreviation for the greatest common factor of a and b, and let LCM(c, d) be the abbreviation for the least common multiple of c and d. What is GCF(LCM(8, 14), LCM(7, 12))? -/
+theorem algebra_12283 : gcd (lcm 8 14) (lcm 7 12) = 28 := by
+  decide

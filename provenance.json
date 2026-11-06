@@ -1,0 +1,13 @@
+{
+  "counts": {
+    "Human": 9475,
+    "Model": 31613,
+    "duplicate_uuid_rows": 74,
+    "rows": 104155,
+    "rows_with_candidates": 37181
+  },
+  "dataset": "AI-MO/NuminaMath-LEAN",
+  "parquet_sha256": "cddeac3b98ad642b53e41b1751ceb7ab34ad22019d8e542b403de67ecf337bc9",
+  "revision": "51fa67f1f647ae1ecd81eef9f19306aa8a7b3a94",
+  "validation": "Unverified supplied source; not replay-checked records"
+}

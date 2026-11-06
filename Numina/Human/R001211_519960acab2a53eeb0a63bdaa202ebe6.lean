@@ -1,0 +1,7 @@
+import Mathlib
+
+/-Kathy needs money for her trip to Europe. If she has 300 US dollars in the bank but wants to withdraw half of it in British pounds and half of it in euros, how many more euros than pounds will she have? Assume 1 pound = 1.64 USD and 1 euro = 1.32 USD, and round to the nearest whole number.-/
+theorem algebra_21371 {n : ℝ} (h : 300 * 0.5 / 1.32 - 300 * 0.5 / 1.64 = n) :
+    round n = 22 := by
+  rw [round_eq, h.symm]
+  norm_num

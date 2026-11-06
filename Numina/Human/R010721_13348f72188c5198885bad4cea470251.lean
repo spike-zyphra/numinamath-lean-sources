@@ -1,0 +1,13 @@
+import Mathlib
+/-Voldemort bought $6.\overline{6}$ ounces of ice cream at an ice cream shop. Each ounce cost $\$0.60.$ How much money, in dollars, did he have to pay?-/
+theorem algebra_21857 {x : ℝ} (hx : x = ∑' n : ℕ, ((0.1 ^ n) : ℝ) * 6) :
+    x * 0.60 = 4 := by
+  --First let's convert $6.\overline{6}$ to a fraction. Let $p=6.\overline{6}$ and multiply both sides of this equation by 10 to obtain $10p=66.\overline{6}$. Subtracting the left-hand sides $10p$ and $p$ as well as the right-hand sides $66.\overline{6}$ and $6.\overline{6}$ of these two equations gives $9p=60$, which implies $p=20/3$. As we know, $0.60 = 6/10=3/5$. We multiply the two fractions to get $$\frac{\cancelto{4}{20}}{\cancel{3}} \cdot \frac{\cancel{3}}{\cancel{5}} = 4.$$Voldemort had to pay $\boxed{\$4}$ for the ice cream.
+  rw [Summable.tsum_mul_right] at hx
+  rw [tsum_geometric_of_lt_one] at hx
+  ring_nf at hx
+  rw [hx]; ring_nf
+  norm_num
+  norm_num
+  apply NormedRing.summable_geometric_of_norm_lt_one
+  norm_num

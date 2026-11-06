@@ -1,0 +1,5 @@
+import Mathlib
+
+theorem number_theory_608453 :
+    1 = (2 : ℝ)⁻¹ + (3 : ℝ)⁻¹ + (6 : ℝ)⁻¹ := by
+  norm_num

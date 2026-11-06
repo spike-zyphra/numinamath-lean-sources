@@ -1,0 +1,31 @@
+import Mathlib
+
+theorem inequalities_597182
+    (a b c d : ℝ)
+    (ha : 0 < a)
+    (hb : 0 < b)
+    (hc : 0 < c)
+    (hd : 0 < d) :
+    2 ≤ a / (b + c) + b / (c + d) + c / (d + a) + d / (a + b) := by
+  have h1 : 0 < b + c := by linarith
+  have h2 : 0 < c + d := by linarith
+  have h3 : 0 < d + a := by linarith
+  have h4 : 0 < a + b := by linarith
+  have h5 : a / (b + c) + b / (c + d) + c / (d + a) + d / (a + b) - 2 ≥ 0 := by
+    have h6 : 0 < (b + c) * (c + d) * (d + a) * (a + b) := by positivity
+    have h7 : a / (b + c) + b / (c + d) + c / (d + a) + d / (a + b) - 2 =
+        ( (a * (c + d) * (d + a) * (a + b) ) + (b * (b + c) * (d + a) * (a + b) ) + (c * (b + c) * (c + d) * (a + b) ) + (d * (b + c) * (c + d) * (d + a) ) - 2 * ( (b + c) * (c + d) * (d + a) * (a + b) ) ) / ( (b + c) * (c + d) * (d + a) * (a + b) ) := by
+      field_simp
+      ring
+    rw [h7]
+    apply div_nonneg
+    · -- Show that the numerator is non-negative
+      nlinarith [sq_nonneg (a - b), sq_nonneg (a - c), sq_nonneg (a - d), sq_nonneg (b - c), sq_nonneg (b - d), sq_nonneg (c - d),
+          sq_nonneg (a + b - c - d), sq_nonneg (a + d - b - c), sq_nonneg (a + c - b - d),
+          mul_pos ha hb, mul_pos ha hc, mul_pos ha hd,
+          mul_pos hb hc, mul_pos hb hd,
+          mul_pos hc hd
+        ]
+    · -- Show that the denominator is positive
+      positivity
+  linarith

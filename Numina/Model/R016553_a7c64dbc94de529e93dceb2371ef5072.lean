@@ -1,0 +1,58 @@
+import Mathlib
+
+theorem inequalities_195111 (x y z : ℝ) (hx : 0 < x) (hy : 0 < y) (hz : 0 < z)
+    (hxy : |x - y| < 2) (hyz : |y - z| < 2) (hzz : |x - z| < 2) :
+    Real.sqrt (x * y + 1) + Real.sqrt (y * z + 1) + Real.sqrt (z * x + 1) > x + y + z := by
+
+  have h1 : (x - y) ^ 2 < 4 := by
+    have h1 : |x - y| < 2 := hxy
+    have h2 : -2 < x - y := by linarith [abs_lt.mp h1]
+    have h3 : x - y < 2 := by linarith [abs_lt.mp h1]
+    nlinarith
+
+  have h2 : (y - z) ^ 2 < 4 := by
+    have h2 : |y - z| < 2 := hyz
+    have h3 : -2 < y - z := by linarith [abs_lt.mp h2]
+    have h4 : y - z < 2 := by linarith [abs_lt.mp h2]
+    nlinarith
+
+  have h3 : (x - z) ^ 2 < 4 := by
+    have h4 : |x - z| < 2 := hzz
+    have h5 : -2 < x - z := by linarith [abs_lt.mp h4]
+    have h6 : x - z < 2 := by linarith [abs_lt.mp h4]
+    nlinarith
+
+  have h4 : Real.sqrt (x * y + 1) > (x + y) / 2 := by
+    have h5 : (x * y + 1) > ((x + y) / 2) ^ 2 := by
+      nlinarith
+    have h6 : Real.sqrt (x * y + 1) > Real.sqrt (((x + y) / 2) ^ 2) := by
+      apply Real.sqrt_lt_sqrt
+      nlinarith
+      nlinarith
+    have h7 : Real.sqrt (((x + y) / 2) ^ 2) = (x + y) / 2 := by
+      rw [Real.sqrt_sq (show 0 ≤ (x + y) / 2 by nlinarith)]
+    linarith [h7, h6]
+
+  have h5 : Real.sqrt (y * z + 1) > (y + z) / 2 := by
+    have h6 : (y * z + 1) > ((y + z) / 2) ^ 2 := by
+      nlinarith
+    have h7 : Real.sqrt (y * z + 1) > Real.sqrt (((y + z) / 2) ^ 2) := by
+      apply Real.sqrt_lt_sqrt
+      nlinarith
+      nlinarith
+    have h8 : Real.sqrt (((y + z) / 2) ^ 2) = (y + z) / 2 := by
+      rw [Real.sqrt_sq (show 0 ≤ (y + z) / 2 by nlinarith)]
+    linarith [h8, h7]
+
+  have h6 : Real.sqrt (z * x + 1) > (z + x) / 2 := by
+    have h7 : (z * x + 1) > ((z + x) / 2) ^ 2 := by
+      nlinarith
+    have h8 : Real.sqrt (z * x + 1) > Real.sqrt (((z + x) / 2) ^ 2) := by
+      apply Real.sqrt_lt_sqrt
+      nlinarith
+      nlinarith
+    have h9 : Real.sqrt (((z + x) / 2) ^ 2) = (z + x) / 2 := by
+      rw [Real.sqrt_sq (show 0 ≤ (z + x) / 2 by nlinarith)]
+    linarith [h9, h8]
+
+  linarith [h4, h5, h6]

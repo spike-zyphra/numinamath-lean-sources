@@ -1,0 +1,4 @@
+import Mathlib
+
+theorem inequalities_105077 (a b : ℝ) : 8 * (a ^ 4 + b ^ 4) ≥ (a + b) ^ 4 := by
+  nlinarith [sq_nonneg (a^2 - b^2), sq_nonneg (a - b), sq_nonneg (a + b), sq_nonneg (a^2 - 2 * a * b + b^2), sq_nonneg (2 * a^2 - 2 * a * b - 2 * b^2), sq_nonneg (a^2 - 2 * b^2), sq_nonneg (2 * a - b), sq_nonneg (a - 2 * b), sq_nonneg (a^3 - b^3), sq_nonneg (a - b), sq_nonneg (a + b), sq_nonneg (a^2 * b * (a - b)), sq_nonneg ((a - b) * (a + b)), sq_nonneg (a * b * (a - b)), sq_nonneg (a * (a - b)), sq_nonneg (b * (a - b)), mul_nonneg (sq_nonneg (a - b)) (sq_nonneg (a + b)), mul_nonneg (sq_nonneg (a)) (sq_nonneg (b))]

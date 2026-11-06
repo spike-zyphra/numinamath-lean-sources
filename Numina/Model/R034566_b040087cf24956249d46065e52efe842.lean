@@ -1,0 +1,13 @@
+import Mathlib
+
+theorem number_theory_214917 (a b : ℤ) : (11 ∣ a^2 + 9 * a * b + b^2) → (11 ∣ a^2 - b^2) := by
+  intro h
+  have h1 : a % 11 = 0 ∨ a % 11 = 1 ∨ a % 11 = 2 ∨ a % 11 = 3 ∨ a % 11 = 4 ∨ a % 11 = 5 ∨ a % 11 = 6 ∨ a % 11 = 7 ∨ a % 11 = 8 ∨ a % 11 = 9 ∨ a % 11 = 10 := by
+    omega
+  have h2 : b % 11 = 0 ∨ b % 11 = 1 ∨ b % 11 = 2 ∨ b % 11 = 3 ∨ b % 11 = 4 ∨ b % 11 = 5 ∨ b % 11 = 6 ∨ b % 11 = 7 ∨ b % 11 = 8 ∨ b % 11 = 9 ∨ b % 11 = 10 := by
+    omega
+  rcases h1 with (h1 | h1 | h1 | h1 | h1 | h1 | h1 | h1 | h1 | h1 | h1) <;> rcases h2 with (h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2 | h2) <;> 
+    ( 
+      simp [Int.dvd_iff_emod_eq_zero, Int.add_emod, Int.mul_emod, pow_two, Int.sub_emod, h1, h2] at h ⊢ 
+      <;> omega 
+    )

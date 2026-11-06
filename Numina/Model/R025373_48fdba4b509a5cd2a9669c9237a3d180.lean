@@ -1,0 +1,7 @@
+import Mathlib
+
+open Real
+
+theorem inequalities_122726 (a b : ℝ) :
+    (27 / 4) * a^2 * b^2 * (a + b)^2 ≤ (a^2 + a * b + b^2)^3 := by 
+  nlinarith [sq_nonneg (a - b), sq_nonneg (a + b), sq_nonneg (a * b), sq_nonneg (a * (a - b)), sq_nonneg (a * (a + b)), sq_nonneg (b * (a - b)), sq_nonneg (b * (a + b)), sq_nonneg (a * b * (a - b)), sq_nonneg (a * b * (a + b)), sq_nonneg (a - 2 * b), sq_nonneg (2 * a - b), sq_nonneg ((a - b) * (a + b)), sq_nonneg ((a - b) * (2 * a + b)), sq_nonneg ((a - b) * (a + 2 * b)), sq_nonneg ((2 * a + b) * (a + 2 * b)), sq_nonneg ((a - b) * (b)), sq_nonneg ((a - b) * (a)), sq_nonneg ((a + b) * (a - 2 * b)), sq_nonneg ((a + b) * (2 * a - b)), sq_nonneg (a * (a - 2 * b)), sq_nonneg (b * (2 * a - b)), sq_nonneg ((2 * a + b) * (a)), sq_nonneg ((2 * a + b) * (b)), sq_nonneg ((a + 2 * b) * (a)), sq_nonneg ((a + 2 * b) * (b)), sq_nonneg ((a * b) * (a)), sq_nonneg ((a * b) * (b)), sq_nonneg (a * b * (a + b)), sq_nonneg (a * b * (a - b)), sq_nonneg (a * (a * b - b^2)), sq_nonneg (b * (a * b - b^2)), sq_nonneg (a * b * (a - b)), sq_nonneg ((a - b) * (b) * (a)), sq_nonneg ((a + b) * (a - b) * (b)), sq_nonneg ((a + b) * (a - b) * (a)), sq_nonneg (a^2 - b^2), sq_nonneg (a^2 * b - a * b^2)]

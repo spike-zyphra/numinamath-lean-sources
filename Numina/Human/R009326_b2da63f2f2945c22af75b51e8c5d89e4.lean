@@ -1,0 +1,29 @@
+import Mathlib
+
+/-Janice bought 30 items each priced at 30 cents, 2 dollars, or 3 dollars. If her total purchase price was $\$$30.00, how many 30-cent items did she purchase?-/
+theorem algebra_14428 (a b c : ℕ) (h : a + b + c = 30)
+    (h' : 30*a + 200*b + 300*c = 3000) : a=20 := by
+  -- Let $a,b,c$ be the number of 30 cent items, 2 dollar items, and 3 dollar items that Janice bought, respectively.
+  -- Since there are 30 items in all, $a+b+c = 30$. The total cost is 3000 cents, so $30a+200b+300c = 3000$
+  -- which can be rewritten as 30a+(30b+170b)+(30c+270c) = 30(a+b+c) + 170b+270c = 3000.
+  have : 30*a + 200*b + 300*c = 30 * (a+b+c) + 170*b + 270*c := by linarith
+  rw [this] at h'
+  -- Substituting $a+b+c = 30$ gives 30\cdot30 + 170b+270c = 3000
+  rw [h] at h'
+  -- Simplifying gives 170b+270c = 2100, we get 17b+27c = 210.
+  have eq : 17 * b + 27 * c = 210 := by linarith
+  -- Thus, $17b+27c$ is a multiple of 10.
+  -- Since $17b+27c = 10(b+2c) + 7(b+c)$, $7(b+c)$ is also a multiple of 10.
+  -- 10 cannot divide 7, so 10 divides $b+c$.
+  have dvd10 : 10 ∣ b + c := by
+    omega
+
+  -- Janice bought 30 items, so the reasonable values of $b+c$ are $0, 10, 20, 30$.
+  -- If $b+c = 0$, then $17b+27c = 0$, which isn't true.
+  -- If $b+c=20$, then the least possible value of $17b+27c$ is $17\cdot20 = 340$, which is also impossible.
+  -- By the same reasoning $b+c=30$ is also impossible.
+  -- We conclude that $b+c= 10$, namely that $b=6$ and $c=4$ to satisfy $17b+27c = 210$. Thus $a = 30-(b+c) = \boxed{20}$.-/
+  have : b + c = 10 := by
+    omega
+  rw [add_assoc, this] at h
+  linarith

@@ -1,0 +1,6 @@
+import Mathlib
+
+/- A standard deck of cards has 52 cards divided into 4 suits, each of which has 13 cards.  Two of the suits ($\heartsuit$ and $\diamondsuit$, called 'hearts' and 'diamonds') are red, the other two ($\spadesuit$ and $\clubsuit$, called 'spades' and 'clubs') are black.  The cards in the deck are placed in random order (usually by a process called 'shuffling').  In how many ways can we pick two different cards? (Order matters, thus ace of spades followed by jack of diamonds is different than jack of diamonds followed by ace of spades.) -/
+theorem algebra_15619 {n : ℕ} (hn : n = 52) :
+    n * (n - 1) = 2652 := by 
+  rw [hn]

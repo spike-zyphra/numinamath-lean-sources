@@ -1,0 +1,5 @@
+import Mathlib
+
+/- Amaretta's birthday is July 27, and her brother Enzo's birthday is September 3. Every year, Amaretta and Enzo celebrate by eating cake every day from Amaretta's birthday through Enzo's birthday (including both birthdays). If they did this for the first time in 2008, how many cake-eating days will they have observed by the end of 2016? -/
+theorem algebra_3754 : 39 * (2016 - 2008 + 1) = 351 := by
+  ring

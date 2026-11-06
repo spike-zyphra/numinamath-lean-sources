@@ -1,0 +1,5 @@
+import Mathlib
+
+/- What is the following value when expressed as a common fraction: $$\frac{1}{3^{1}}+\frac{1}{3^{2}}+\frac{1}{3^{3}}+\frac{1}{3^{4}}+\frac{1}{3^{5}}+\frac{1}{3^{6}}?$$ -/
+theorem algebra_10365 : ∑ i ∈ Finset.range 6, (1 / 3^(i + 1) : ℚ) = 364 / 729 := by
+  norm_num [Finset.sum_range_succ, div_eq_mul_inv]

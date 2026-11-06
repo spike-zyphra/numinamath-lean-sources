@@ -1,0 +1,4 @@
+import Mathlib
+
+theorem number_theory_3170 : 1+2+5+13+34+89+233+610+1597+4181+10946+28657+75025=121393 := by 
+  norm_num

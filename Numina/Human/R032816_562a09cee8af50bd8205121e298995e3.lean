@@ -1,0 +1,9 @@
+import Mathlib
+
+theorem algebra_121912 {x : ℝ} (hx : x * (x + 3) = 154) : (x + 1) * (x + 2) = 156 := by
+  have h1 : x ^ 2 + 3 * x = 154 := by
+    linarith [hx]
+  calc
+    (x + 1) * (x + 2) = x^2 + 3 * x + 2 := by ring
+    _ = 154 + 2 := by rw [← h1]
+    _ = 156 := by norm_num

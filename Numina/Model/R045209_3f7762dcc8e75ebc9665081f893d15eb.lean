@@ -1,0 +1,7 @@
+import Mathlib
+
+theorem number_theory_265322 (f : ℕ → ℕ) (hf : f = fun x => 3 * x + 2) :
+    ∃ m, 1988 ∣ f^[100] m := by 
+  use 1520
+  rw [hf]
+  native_decide

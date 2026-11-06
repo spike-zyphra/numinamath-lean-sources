@@ -1,0 +1,5 @@
+import Mathlib
+
+/- The base-10 numbers 217 and 45 are multiplied. The product is then written in base-6. What is the units digit of the base-6 representation? -/
+theorem number_theory_12030 : (217 * 45) % 6 = 3 := by
+  rfl

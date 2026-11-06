@@ -1,0 +1,11 @@
+import Mathlib
+
+theorem algebra_20267 {x y z w : ℝ}
+    (h1 : x^2 / (2^2 - 1) + y^2 / (2^2 - 3^2) + z^2 / (2^2 - 5^2) + w^2 / (2^2 - 7^2) = 1)
+    (h2 : x^2 / (4^2 - 1) + y^2 / (4^2 - 3^2) + z^2 / (4^2 - 5^2) + w^2 / (4^2 - 7^2) = 1)
+    (h3 : x^2 / (6^2 - 1) + y^2 / (6^2 - 3^2) + z^2 / (6^2 - 5^2) + w^2 / (6^2 - 7^2) = 1)
+    (h4 : x^2 / (8^2 - 1) + y^2 / (8^2 - 3^2) + z^2 / (8^2 - 5^2) + w^2 / (8^2 - 7^2) = 1) :
+    w^2 + x^2 + y^2 + z^2 = 36 := by
+  norm_num at h1 h2 h3 h4
+  nlinarith [sq_nonneg (x^2 - 9), sq_nonneg (y^2 - 9), sq_nonneg (z^2 - 4), sq_nonneg (w^2 - 14),
+    sq_nonneg (x), sq_nonneg (y), sq_nonneg (z), sq_nonneg (w)]

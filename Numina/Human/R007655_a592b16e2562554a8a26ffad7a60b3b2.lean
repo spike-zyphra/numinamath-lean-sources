@@ -1,0 +1,27 @@
+import Mathlib
+
+/-To promote her school's annual Kite Olympics, Genevieve makes a small kite and a large kite for a bulletin board display. For her small kite, Genevieve draws the kite on a grid with the points one inch apart, as shown below.
+
+[asy]
+for ( int x = 0; x <= 6; ++x )
+{
+
+for ( int y = 0; y <= 7; ++y )
+
+{
+
+dot((x,y));
+
+}
+}
+draw((0,5)--(3,7)--(6,5)--(3,0)--cycle);
+[/asy]
+
+For the large kite she triples both the height and width of the entire grid.
+
+What is the number of square inches in the area of the small kite?-/
+theorem algebra_10876 {x y : ℕ} (hx : x = 3) (hy : y = 7) :
+    ((x * y) / 2) * 2 = (21 : ℝ) := by
+  -- The kite can be divided into two triangles, each with base 7 and altitude 3.  Each area is $(1/2)(7)(3) = 10.5$, so the total area is $2(10.5) = \boxed{21}$ square inches.
+  rw [hx, hy]
+  norm_num

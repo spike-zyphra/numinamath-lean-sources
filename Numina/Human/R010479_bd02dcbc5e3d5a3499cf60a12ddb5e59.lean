@@ -1,0 +1,10 @@
+import Mathlib
+
+/- Krista put 1 cent into her new bank on a Sunday morning.  On Monday she put 2 cents into her bank.  On Tuesday she put 4 cents into her bank, and she continued to double the amount of money she put into her bank each day for two weeks.  On what day of the week did the total amount of money in her bank first exceed $\$2$? -/
+theorem algebra_13145 : IsLeast {n : ℕ | Finset.sum (Finset.range n) (fun i => 2 ^ i) > 200} 8 := by
+  constructor
+  . decide
+  . simp [lowerBounds]
+    intro a ha
+    contrapose! ha
+    interval_cases a <;> decide

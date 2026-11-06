@@ -1,0 +1,7 @@
+import Mathlib
+
+/-A state requires that all boat licenses consist of the letter A or M followed by any five digits. What is the number of groups of letters and numbers available for boat licenses?-/
+theorem algebra_13608 : Nat.card ((Fin 2) × (Fin 5 → Fin 10)) = 200000 := by
+  -- There are two choices for the letter, followed by ten choices of a digit for each of the next five slots.
+  -- Thus, there are $2 \cdot 10^5 = \boxed{200000}$ combinations.
+  simp

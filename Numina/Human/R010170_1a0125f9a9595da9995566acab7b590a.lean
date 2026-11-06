@@ -1,0 +1,4 @@
+import Mathlib
+
+/- A woman labels the squares of a very large chessboard $1$ through $64$. On each square $k$, the woman puts $2^k$ grains of rice. How many more grains of rice are placed on the $10^{th}$ square than on the first $8$ squares combined? -/
+theorem algebra_10732 : 2^10 - ∑ k in Finset.Icc 1 8, 2^k = 514 := by rfl

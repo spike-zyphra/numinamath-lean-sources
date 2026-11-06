@@ -1,0 +1,4 @@
+import Mathlib
+
+/- Acme Corporation has released an alphabet soup in which each of the vowels (A, E, I, O, U) of the English alphabet appears five times (and the consonants do not appear at all). How many five-letter words can be formed from a bowl of Acme Vowel Soup? (Note: The words do not have to be actual words in English!) -/
+theorem algebra_14092 : Fintype.card (Fin 5 → Fin 5) = 3125 := by native_decide

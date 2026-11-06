@@ -1,0 +1,3 @@
+import Mathlib
+/- Let $S$ be an integer. A 4-digit number $n$ is written as $1000a+100b+10c+d$ where $a,b,c,d$ are its digits, with $a \in \{1, \dots, 9\}$ and $b,c,d \in \{0, \dots, 9\}$. The reverse of $n$ is $rev(n) = 1000d+100c+10b+a$. Determine all numbers $n$ such that $rev(n) - n = S$. Show that if $S=8802$, the unique solution for $n$ is $1099$. -/
+theorem number_theory_637443 (a b c d : ℕ) (ha1 : 1 ≤ a) (ha2 : a ≤ 9) (hb : b ≤ 9) (hc : c ≤ 9) (hd : d ≤ 9) (h1 : 1000 * d + 100 * c + 10 * b + a - (1000 * a + 100 * b + 10 * c + d) = 8802) : 1000 * a + 100 * b + 10 * c + d = 1099:= by omega

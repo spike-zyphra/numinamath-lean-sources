@@ -1,0 +1,19 @@
+import Mathlib
+
+/-
+In a game of rock-paper-scissors with $n$ people, the following rules are used to determine a champion:
+(a) In a round, each person who has not been eliminated randomly chooses one of rock, paper, or scissors to play.
+(b) If at least one person plays rock, at least one person plays paper, and at least one person plays scissors, then the round is declared a tie and no one is eliminated. If everyone makes the same move, then the round is also declared a tie.
+(c) If exactly two moves are represented, then everyone who made the losing move is eliminated from playing in all further rounds (for example, in a game with 8 people, if 5 people play rock and 3 people play scissors, then the 3 who played scissors are eliminated).
+(d) The rounds continue until only one person has not been eliminated. That person is declared the champion and the game ends.
+
+If a game begins with 4 people, what is the expected value of the number of rounds required for a champion to be determined?
+-/
+theorem combinatorics_609069_derived {E : ℕ → ℝ}
+    (hE1 : E 1 = 0)
+    (hE2 : E 2 = 3 / 2)
+    (hE3 : E 3 = 9 / 4)
+    (h_rec : E 4 = (13 / 27) * (E 4 + 1) + (4 / 27) * (E 3 + 1) + (2 / 9) * (E 2 + 1) + (4 / 27) * (E 1 + 1)) :
+    E 4 = 45 / 14 := by
+  rw [hE1, hE2, hE3] at h_rec
+  linarith [h_rec]

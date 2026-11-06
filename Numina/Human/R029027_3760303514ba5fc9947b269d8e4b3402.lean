@@ -1,0 +1,25 @@
+import Mathlib
+
+/- 23. a) Show that if \( f \) and \( g \) are multiplicative functions, then \( f g \) is also multiplicative.  -/
+theorem number_theory_4887_1 (f g : ℕ → ℕ)
+    (hmf : ∀ m n, Nat.Coprime m n → f m * f n = f (m * n))
+    (hmg : ∀ m n, Nat.Coprime m n →  g m * g n = g (m * n)) :
+    ∀ m n, Nat.Coprime m n → (f * g) m * (f * g) n = (f * g) (m * n) := by
+  --we prove that if f and g are multiplicative functions, then fg is also multiplicative
+  --unwinding the assumptions then simplify
+  intro m n hmn; simp
+  have r1 := hmf m n hmn
+  have r2 := hmg m n hmn
+  rw [← r1, ← r2]; ring
+
+/- b) Show that if \( f \) and \( g \) are completely multiplicative functions, then \( f g \) is also completely multiplicative.-/
+theorem number_theory_4887_2 (f g : ℕ → ℕ)
+    (hmf : ∀ m n, f m * f n = f (m * n))
+    (hmg : ∀ m n, g m * g n = g (m * n)) :
+    ∀ m n, (f * g) m * (f * g) n = (f * g) (m * n) := by
+  --we prove that if f and g are completely multiplicative functions, then fg is also completely multiplicative
+  --unwinding the assumptions then simplify
+  intro m n; simp
+  have r1 := hmf m n
+  have r2 := hmg m n
+  rw [← r1, ← r2]; ring

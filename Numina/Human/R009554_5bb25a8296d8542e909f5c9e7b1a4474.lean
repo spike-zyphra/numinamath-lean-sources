@@ -1,0 +1,9 @@
+import Mathlib
+
+/-The trip from Carville to Nikpath requires $4\frac 12$ hours when traveling at an average speed of 70 miles per hour. How many hours does the trip require when traveling at an average speed of 60 miles per hour? Express your answer as a decimal to the nearest hundredth.-/
+theorem algebra_14454 (d t1 t2 : ℝ) (ht1 : t1 = 4.5) (hd : d = 70 * t1)  (ht2 : t2 = d / 60):
+    t2 = 5.25 := by
+  -- Since $\text{distance}=\text{rate}\times\text{time}$, decreasing speed by a factor of $\frac{6}{7}$ increases the amount of time the trip takes by $\frac{7}{6}$.  Therefore, at 60 miles per hour the trip takes $4\frac{1}{2}\cdot \frac{7}{6}=\frac{9}{2}\cdot\frac{7}{6}=\frac{21}{4}=\boxed{5.25}$ hours.
+  rw [ht1] at hd
+  rw [ht2, hd]
+  ring_nf

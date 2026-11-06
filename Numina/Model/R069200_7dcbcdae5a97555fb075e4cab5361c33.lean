@@ -1,0 +1,4 @@
+import Mathlib
+
+theorem algebra_239023 : 2009 = (2 * (2 + 1) + 1) * (2 * 2 * 2 * 2 * 2 * (2 + 1) * (2 + 1) - 1) := by
+  norm_num
